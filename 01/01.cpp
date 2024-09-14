@@ -16,6 +16,8 @@ void numeroMes();
 void positivoNegativo();
 void esVocal();
 void sumaTresNumeros();
+void multiplicacionTresNumeros();
+void mayorCien();
 
 void clearConsole() {
     #if defined(_WIN32) || defined(_WIN64)
@@ -55,6 +57,10 @@ void continuarMenu(int programa) {
             break;
         case 6:
             sumaTresNumeros();
+        case 7:
+            multiplicacionTresNumeros();
+        case 8:
+            mayorCien();
         }
     } else {
         cout << "Ingrese una opción válida" << endl;
@@ -74,6 +80,8 @@ void menu() {
     cout << "4. Positivo o negativo" << endl;
     cout << "5. Es Vocal" << endl;
     cout << "6. n1 + n2 = n3" << endl;
+    cout << "7. n1 * n2 = n3" << endl;
+    cout << "8. Comprobar si un numero es mayor de 100" << endl;
     cout << "7. Salir" << endl;
 
     cout << "Ingrese su opción: ";
@@ -98,7 +106,14 @@ void menu() {
             case 6:
                 sumaTresNumeros();
                 break;
+            case 7:
+                multiplicacionTresNumeros();
+                break;
+            case 8:
+                mayorCien();
             default:
+                cout << "Numero invalido. Por favor intente de nuevo" << endl;;
+                menu();
                 break;
     }
 
@@ -329,6 +344,51 @@ void sumaTresNumeros(){
     }
     
     continuarMenu(programa);
+}
+
+void multiplicacionTresNumeros(){
+    int programa = 7;
+
+    int n1 = 0;
+    int n2 = 0;
+    int n3 = 0;
+
+    cout << "Ingrese el resultado esperado de la multplicación de dos numeros: " << endl;
+    cin >> n3;
+
+    cout << "Ingrese el primer numero: " << endl;
+    cin >> n1;
+
+    cout << "Ingrese el segundo numero: " << endl;
+    cin >> n2;
+
+    if ((n1 * n2) != n3 )
+    {
+        cout << "La multplicacion de " << n1 << " * " << n2 << " no es igual a " << n3 << endl;
+    } else {
+        cout << "La suma de " << n1 << " * " << n2 << " es igual a " << n3 << endl;
+    }
+    
+    continuarMenu(programa);
+
+}
+
+void mayorCien(){
+    int programa = 8;
+    int comprobar = 0;
+
+    cout << "Ingrese el numero a comprobar: " << endl;
+    cin >> comprobar;
+
+    if (comprobar > 100)
+    {
+        cout << "El numero es mayor de 100" << endl;
+    } else {
+        cout << "El numero es menor de 100" << endl;
+     }
+    
+    continuarMenu(programa);
+
 }
 
 int main() {
